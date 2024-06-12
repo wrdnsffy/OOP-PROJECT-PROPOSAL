@@ -4,48 +4,50 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-class Accounts {
-    private int id;
-    private String name;
-    private double balance;
+public class Accounts {
+    public class Account {
+        private int id;
+        private String name;
+        private double balance;
 
-    public Account(int id, String name, double balance) {
-        this.id = id;
-        this.name = name;
-        this.balance = balance;
+        private Account(int id, String name, double balance) {
+            this.id = id;
+            this.name = name;
+            this.balance = balance;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public double getBalance() {
+            return balance;
+        }
+
+        @Override
+        public String toString() {
+            return "Account{" +
+                    "id=" + id +
+                    ", name='" + name + '\'' +
+                    ", balance=" + balance +
+                    '}';
+        }
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public double getBalance() {
-        return balance;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", balance=" + balance +
-                '}';
-    }
-}
-
-class AccountManager {
     private List<Account> accounts;
 
-    public AccountManager() {
+    public Accounts() {
         accounts = new ArrayList<>();
     }
 
-    public void addAccount(Account account) {
+    public Account addAccount(int id, String name, double balance) {
+        Account account = new Account(id, name, balance);
         accounts.add(account);
+        return account;
     }
 
     public void removeAccount(int id) {
@@ -68,30 +70,32 @@ class AccountManager {
 
 public class Main {
     public static void main(String[] args) {
-        // Create an instance of AccountManager
-        AccountManager accountManager = new AccountManager();
+        // Creating an instance of Accounts
+        Accounts accounts = new Accounts();
 
-        // Add accounts
-        accountManager.addAccount(new Accounts(1, "Nina", 1000.0));
-        accountManager.addAccount(new Accounts(2, "Amanda", 1500.0));
-        accountManager.addAccount(new Accounts(3, "Lily", 2000.0));
+        // Adding accounts
+        accounts.addAccount(1, "Nina", 1000.0);
+        accounts.addAccount(2, "Amanda", 1500.0);
+        accounts.addAccount(3, "Lily", 2000.0);
 
-        // Print all accounts
+        // Printing all accounts
         System.out.println("All Accounts:");
-        accountManager.printAllAccounts();
+        accounts.printAllAccounts();
 
-        // Find and print an account by ID
-        System.out.println("\nFind Account with ID 2:");
-        Accounts account = accountManager.findAccountById(2);
-        if (account != null) {
-            System.out.println(account);
+        // Finding an account by ID
+        int accountIdToFind = 2;
+        System.out.println("\nFinding Account with ID " + accountIdToFind + ":");
+        Accounts.Account foundAccount = accounts.findAccountById(accountIdToFind);
+        if (foundAccount != null) {
+            System.out.println(foundAccount);
         } else {
-            System.out.println("Account not found.");
+            System.out.println("Account with ID " + accountIdToFind + " not found.");
         }
 
-        // Remove an account by ID
-        accountManager.removeAccount(2);
-        System.out.println("\nAll Accounts after removing account with ID 2:");
-        accountManager.printAllAccounts();
+        // Removing an account
+        int accountIdToRemove = 1;
+        accounts.removeAccount(accountIdToRemove);
+        System.out.println("\nAll Accounts after removing Account with ID " + accountIdToRemove + ":");
+        accounts.printAllAccounts();
     }
 }
