@@ -91,7 +91,7 @@ public class Client {
     }
 
     // Getters and setters for userid, password, phoneNumber, and address
-    public String getUserid() {
+    public String getUserId() {
         return userid;
     }
 
