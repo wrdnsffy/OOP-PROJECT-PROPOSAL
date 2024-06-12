@@ -34,6 +34,16 @@ public class Account {
         this.transactionList.add(transaction);
     }
 
+    // Added method to get a transaction at a specific index
+    public Transaction getTransaction(int index) {  // <-- Added this method
+        if (index >= 0 && index < transactionList.size()) {
+            return transactionList.get(index);
+        } else {
+            System.out.println("Transaction index out of bounds.");
+            return null;
+        }
+    }
+
     // Method to deposit money into the account
     public void deposit(double amount) {
         if (amount > 0) {
