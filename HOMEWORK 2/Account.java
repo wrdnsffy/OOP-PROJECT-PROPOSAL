@@ -76,11 +76,14 @@ public class Account {
 
 public class Main {
     public static void main(String[] args) {
-        // Create an address
-        Address address = new Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35367");
+        // Create a name for the client
+        Client.Name name = new Client.Name("Nina", "Lily");
+
+        // Create an address for the client
+        Client.Address address = new Client.Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35367");
 
         // Create a client
-        Client client = new Client("Nina", "Lily", "ninalily", "12345", "123-456-7890", address);
+        Client client = new Client(name, "ninalily", "12345", "123-456-7890", address);
 
         // Create an account for the client
         Account account = new Account(client, "1234567890", 500.0);
@@ -111,8 +114,7 @@ public class Main {
         System.out.println("\nAttempt to withdraw $1000:");
         if (withdrawalSuccess) {
             System.out.println("Withdrawal successful.");
-        } 
-        else {
+        } else {
             System.out.println("Withdrawal failed due to insufficient balance.");
         }
         System.out.println("Current Balance: " + account.getCurrentBalance());
