@@ -45,12 +45,13 @@ public class Clients {
         return null; // Return null if client not found
     }
 
+    //test code by Wardina Saffiya Binti Jamalulil (24000996) 
     public static void main(String[] args) {
         Clients clients = new Clients();
 
         // Adding clients
         clients.add(new Client("11", "Raheem", "Raheem@gmail.com"));
-        clients.add(new Client("21", "dahlia", "dahlia@gmail.com"));
+        clients.add(new Client("21", "Dahlia", "dahlia@gmail.com"));
 
         // Printing all clients
         System.out.println("All Clients: ");
