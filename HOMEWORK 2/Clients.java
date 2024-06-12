@@ -46,33 +46,35 @@ public class Clients {
         }
         return null; // Return null if client not found
     }
+}
 
 //test code by Wardina Saffiya Binti Jamalulil (24000996) 
     
-public static void main(String[] args) {
-    Clients clients = new Clients();
+public class Main {
+    public static void main(String[] args) {
+        // Create an instance of Clients
+        Clients clients = new Clients();
 
-    // Adding clients
-    clients.add(new Client(new Client.Name("11", "Raheem"), "Raheem@gmail.com", "123456", "1234567890", new Client.Address("123 Jalan Muda", "Ipoh", "Perak", "12345")));
-    clients.add(new Client(new Client.Name("21", "Dahlia"), "Dahlia@gmail.com", "123456", "1234567890", new Client.Address("123 Jalan Muda", "Ipoh", "Perak", "12345")));
+        // Add clients
+        clients.add(new Client(new Client.Name("11", "Raheem"), "Raheem@gmail.com", "123456", "1234567890", new Client.Address("123 Jalan Muda", "Ipoh", "Perak", "12345")));
+        clients.add(new Client(new Client.Name("21", "Dahlia"), "Dahlia@gmail.com", "123456", "1234567890", new Client.Address("123 Jalan Muda", "Ipoh", "Perak", "12345")));
 
-    // Printing all clients
-    System.out.println("All Clients: ");
-    clients.print();
+        // Print all clients
+        System.out.println("All Clients:");
+        clients.print();
 
-    // Finding a client
-    System.out.println("\nFind Client with userId 11:");
-    Client foundClient = clients.find("11");
-    if (foundClient != null) {
-        System.out.println(foundClient);
-    } 
-    else {
-        System.out.println("Client not found.");
+        // Find and print a client by userId
+        System.out.println("\nFind Client with userId 11:");
+        Client foundClient = clients.find("11");
+        if (foundClient != null) {
+            System.out.println(foundClient);
+        } else {
+            System.out.println("Client not found.");
         }
 
-    // Removing a client
-    clients.remove("11");
-    System.out.println("\nAll Clients after removing client with userId 11:");
-    clients.print();
+        // Remove a client by userId
+        clients.remove("11");
+        System.out.println("\nAll Clients after removing client with userId 11:");
+        clients.print();
     }
 }
