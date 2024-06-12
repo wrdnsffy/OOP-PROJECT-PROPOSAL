@@ -4,40 +4,34 @@ class Transaction {
     private double amount;
     private double balance;
     private String date;
-
     
     public Transaction(double amount, double balance, String date) {
-      
-    }
-
-    public double getAmount() {    
-        
-        return amount;
-             
-    }
-    public void setAmount(double amount) {  
-        
         this.amount = amount;
-             
+        this.balance = balance;
+        this.date = date;      
     }
 
-    public double getBalance() {
-        
-        return balance; 
-                
+    public double getAmount() {       
+        return amount;             
     }
-    public void setBalance(double balance) {
-        
-        this.balance = balance; }
+    
+    public void setAmount(double amount) {      
+        this.amount = amount;         
+    }
 
-    public String getDate() {
-        
-        return date; 
-            
+    public double getBalance() {     
+        return balance;              
     }
-    public void setDate(String date) { 
-        
-        this.date = date; 
-           
+    
+    public void setBalance(double balance) { 
+        this.balance = balance; 
+    }
+
+    public String getDate() {        
+        return date;           
+    }
+    
+    public void setDate(String date) {  
+        this.date = date;       
     }
 }
