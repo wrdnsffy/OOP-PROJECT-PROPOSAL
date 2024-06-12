@@ -137,7 +137,7 @@ public class Client {
     
     public static void main(String[] args) {
         // Create a Name object
-        Name name = new Name("John", "Doe");
+        Name name = new Name("Nina", "Lily");
 
         // Create an Address object
         Address address = new Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35366");
