@@ -140,10 +140,10 @@ public class Client {
         Name name = new Name("John", "Doe");
 
         // Create an Address object
-        Address address = new Address("123 Main St", "Anytown", "Anystate", "12345");
+        Address address = new Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35366");
 
         // Create a Client object
-        Client client = new Client(name, "johndoe", "password123", "123-456-7890", address);
+        Client client = new Client(name, "ninalily", "12345", "123-456-7890", address);
 
         // Print initial client details
         System.out.println("Initial Client Details:");
