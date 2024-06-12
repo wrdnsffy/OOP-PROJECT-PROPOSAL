@@ -71,3 +71,55 @@ public class Account {
         return this.currentBalance;
     }
 }
+
+//test code by Wardina Saffiya Binti Jamalulil
+public class Main {
+    public static void main(String[] args) {
+        // Create an address
+        Address address = new Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35367");
+
+        // Create a client
+        Client client = new Client("Nina", "Lily", "ninalily", "12345", "123-456-7890", address);
+
+        // Create an account for the client
+        Account account = new Account(client, "1234567890", 500.0);
+
+        // Print initial account details
+        System.out.println("Initial Account Details:");
+        System.out.println("Client: " + account.getClient());
+        System.out.println("Account Number: " + account.getAccountNumber());
+        System.out.println("Current Balance: " + account.getCurrentBalance());
+
+        // Deposit money
+        account.deposit(200.0);
+        System.out.println("\nAfter depositing $200:");
+        System.out.println("Current Balance: " + account.getCurrentBalance());
+
+        // Withdraw money
+        boolean withdrawalSuccess = account.withdraw(100.0);
+        System.out.println("\nAfter withdrawing $100:");
+        if (withdrawalSuccess) {
+            System.out.println("Withdrawal successful.");
+        } else {
+            System.out.println("Withdrawal failed.");
+        }
+        System.out.println("Current Balance: " + account.getCurrentBalance());
+
+        // Attempt to withdraw more money than available balance
+        withdrawalSuccess = account.withdraw(1000.0);
+        System.out.println("\nAttempt to withdraw $1000:");
+        if (withdrawalSuccess) {
+            System.out.println("Withdrawal successful.");
+        } 
+        else {
+            System.out.println("Withdrawal failed due to insufficient balance.");
+        }
+        System.out.println("Current Balance: " + account.getCurrentBalance());
+
+        // Print all transactions
+        System.out.println("\nTransaction History:");
+        for (Transaction transaction : account.getTransactionList()) {
+            System.out.println(transaction);
+        }
+    }
+}
