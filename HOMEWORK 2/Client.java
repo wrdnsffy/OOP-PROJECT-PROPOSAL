@@ -76,27 +76,27 @@ public class Client {
     }
 
     private Name name;
-    private String userid;
+    private String userId;
     private String password;
     private String phoneNumber;
     private Address address;
 
     // Constructor
-    public Client(Name name, String userid, String password, String phoneNumber, Address address) {
+    public Client(Name name, String userId, String password, String phoneNumber, Address address) {
         this.name = name;
-        this.userid = userid;
+        this.userId = userId;
         this.password = password;
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
 
-    // Getters and setters for userid, password, phoneNumber, and address
+    // Getters and setters for userId, password, phoneNumber, and address
     public String getUserId() {
-        return userid;
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getPassword() {
@@ -123,24 +123,36 @@ public class Client {
         this.address = address;
     }
 
+    // Getter for name
+    public Name getName() {
+        return name;
+    }
+
+    // Setter for name
+    public void setName(Name name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Client{" +
                 "name='" + name.getFirstName() + " " + name.getLastName() + '\'' +
-                ", userid='" + userid + '\'' +
+                ", userId='" + userId + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", address=" + address +
                 '}';
     }
+}
 
-    //test code by Wardina Saffiya Binti Jamalulil (24000996) 
+//test code by Wardina Saffiya Binti Jamalulil (24000996) 
     
+public class Main {
     public static void main(String[] args) {
         // Create a Name object
-        Name name = new Name("Nina", "Lily");
+        Client.Name name = new Client.Name("Nina", "Lily");
 
         // Create an Address object
-        Address address = new Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35366");
+        Client.Address address = new Client.Address("123 Jalan Mudah", "Bandar Baru", "Ipoh", "35366");
 
         // Create a Client object
         Client client = new Client(name, "ninalily", "12345", "123-456-7890", address);
@@ -152,17 +164,19 @@ public class Client {
         // Modify client details
         client.setPassword("newpassword456");
         client.setPhoneNumber("098-765-4321");
-        client.setAddress(new Address("456 Elm St", "Othertown", "Otherstate", "54321"));
+        client.setAddress(new Client.Address("456 Elm St", "Othertown", "Otherstate", "54321"));
 
         // Print modified client details
         System.out.println("\nModified Client Details:");
         System.out.println(client);
 
-        // Modify name details
-        client.name.setFirstName("Jane");
-        client.name.setLastName("Smith");
+        // Modify client's name if the getName() method is available
+        if (client.getName() != null) {
+            client.getName().setFirstName("Jane");
+            client.getName().setLastName("Smith");
+        }
 
-        // Print client details with modified name
+        // Print client details with modified name if available
         System.out.println("\nClient Details with Modified Name:");
         System.out.println(client);
     }
