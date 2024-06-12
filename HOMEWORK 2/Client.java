@@ -1,6 +1,80 @@
 //by Nur Aisya' Sofea Binti Husin (22012332) 
 
 public class Client {
+    // Inner class for Name
+    public static class Name {
+        private String firstName;
+        private String lastName;
+
+        public Name(String firstName, String lastName) {
+            this.firstName = firstName;
+            this.lastName = lastName;
+        }
+
+        public String getFirstName() {
+            return firstName;
+        }
+
+        public void setFirstName(String firstName) {
+            this.firstName = firstName;
+        }
+
+        public String getLastName() {
+            return lastName;
+        }
+
+        public void setLastName(String lastName) {
+            this.lastName = lastName;
+        }
+    }
+
+    // Inner class for Address
+    public static class Address {
+        private String street;
+        private String city;
+        private String state;
+        private String zipCode;
+
+        public Address(String street, String city, String state, String zipCode) {
+            this.street = street;
+            this.city = city;
+            this.state = state;
+            this.zipCode = zipCode;
+        }
+
+        public String getStreet() {
+            return street;
+        }
+
+        public void setStreet(String street) {
+            this.street = street;
+        }
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
+
+        public String getState() {
+            return state;
+        }
+
+        public void setState(String state) {
+            this.state = state;
+        }
+
+        public String getZipCode() {
+            return zipCode;
+        }
+
+        public void setZipCode(String zipCode) {
+            this.zipCode = zipCode;
+        }
+    }
+
     private Name name;
     private String userid;
     private String password;
@@ -16,16 +90,7 @@ public class Client {
         this.address = address;
     }
 
-    // Getter and Setter for name
-    public Name getName() {
-        return name;
-    }
-
-    public void setName(Name name) {
-        this.name = name;
-    }
-
-    // Getter and Setter for userid
+    // Getters and setters for userid, password, phoneNumber, and address
     public String getUserid() {
         return userid;
     }
@@ -34,7 +99,6 @@ public class Client {
         this.userid = userid;
     }
 
-    // Getter and Setter for password
     public String getPassword() {
         return password;
     }
@@ -43,7 +107,6 @@ public class Client {
         this.password = password;
     }
 
-    // Getter and Setter for phoneNumber
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -52,7 +115,6 @@ public class Client {
         this.phoneNumber = phoneNumber;
     }
 
-    // Getter and Setter for address
     public Address getAddress() {
         return address;
     }
@@ -63,6 +125,45 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{name='" + name.getFirstName() + " " + name.getLastName() + "', userid='" + userid + "', phoneNumber='" + phoneNumber + "', address='" + address + "'}";
+        return "Client{" +
+                "name='" + name.getFirstName() + " " + name.getLastName() + '\'' +
+                ", userid='" + userid + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address=" + address +
+                '}';
+    }
+
+    //test code by Wardina Saffiya Binti Jamalulil (24000996) 
+    
+    public static void main(String[] args) {
+        // Create a Name object
+        Name name = new Name("John", "Doe");
+
+        // Create an Address object
+        Address address = new Address("123 Main St", "Anytown", "Anystate", "12345");
+
+        // Create a Client object
+        Client client = new Client(name, "johndoe", "password123", "123-456-7890", address);
+
+        // Print initial client details
+        System.out.println("Initial Client Details:");
+        System.out.println(client);
+
+        // Modify client details
+        client.setPassword("newpassword456");
+        client.setPhoneNumber("098-765-4321");
+        client.setAddress(new Address("456 Elm St", "Othertown", "Otherstate", "54321"));
+
+        // Print modified client details
+        System.out.println("\nModified Client Details:");
+        System.out.println(client);
+
+        // Modify name details
+        client.name.setFirstName("Jane");
+        client.name.setLastName("Smith");
+
+        // Print client details with modified name
+        System.out.println("\nClient Details with Modified Name:");
+        System.out.println(client);
     }
 }
