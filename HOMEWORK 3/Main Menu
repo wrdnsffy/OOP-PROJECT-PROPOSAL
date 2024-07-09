@@ -1,0 +1,55 @@
+//by Muhammad Aiman Haikal Bin Mohammad Akmal Surish (24000458)
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+
+public class MainMenu extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Main Menu");
+
+        // Create the buttons
+        Button balanceInquiryButton = new Button("Balance Inquiry");
+        Button cashWithdrawalButton = new Button("Cash Withdrawal");
+        Button depositButton = new Button("Deposit");
+        Button exitButton = new Button("Exit");
+
+        // Set button actions
+        balanceInquiryButton.setOnAction(e -> System.out.println("Balance Inquiry selected"));
+        cashWithdrawalButton.setOnAction(e -> System.out.println("Cash Withdrawal selected"));
+        depositButton.setOnAction(e -> System.out.println("Deposit selected"));
+        exitButton.setOnAction(e -> System.exit(0));
+
+        // Create a GridPane to hold the buttons
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setPadding(new Insets(10));
+        gridPane.setHgap(10);
+        gridPane.setVgap(10);
+
+        // Add buttons to the GridPane
+        gridPane.add(balanceInquiryButton, 0, 0);
+        gridPane.add(cashWithdrawalButton, 0, 1);
+        gridPane.add(depositButton, 0, 2);
+        gridPane.add(exitButton, 0, 3);
+
+        // Create a scene with the gridPane
+        Scene scene = new Scene(gridPane, 300, 200);
+
+        // Set the scene to the stage
+        primaryStage.setScene(scene);
+
+        // Show the stage
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
