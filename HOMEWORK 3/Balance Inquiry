@@ -1,0 +1,51 @@
+//by Wan Nur Irdina Binti Wan Hasbullah (24000247)
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class balanceInquiry extends Application {
+
+    private double currentBalance = 1000.00;  // Example balance
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("ATM Machine");
+
+        // Create a label to display the current balance
+        Label balanceLabel = new Label("Your current balance is : RM" + currentBalance);
+
+        // Create a button to return to the main menu
+        Button mainMenuButton = new Button("Main Menu");
+        mainMenuButton.setOnAction(event -> returnToMainMenu(primaryStage));
+
+        // Arrange the label and button in a vertical box layout
+        VBox vbox = new VBox(10);  // 10 is the spacing between elements
+        vbox.getChildren().addAll(balanceLabel, mainMenuButton);
+
+        // Set up the scene and stage
+        Scene scene = new Scene(vbox, 300, 200);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void returnToMainMenu(Stage primaryStage) {
+        // Implement main menu UI
+        Label mainMenuLabel = new Label(" This is the main Menu");
+        Button balanceButton = new Button("Check Balance");
+        balanceButton.setOnAction(event -> start(primaryStage)); // Example to show balance screen again
+
+        VBox mainMenuVBox = new VBox(10);
+        mainMenuVBox.getChildren().addAll(mainMenuLabel, balanceButton);
+
+        Scene mainMenuScene = new Scene(mainMenuVBox, 300, 200);
+        primaryStage.setScene(mainMenuScene);
+    }
+}
