@@ -1,0 +1,52 @@
+//by Nur Aisya' Sofea Binti Husin (22012332)
+
+import javafx.application.Application;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+public class WelcomeScreen extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Welcome to ATM");
+
+        Label label = new Label("Enter Card Number or Username:");
+        TextField cardNumberField = new TextField();
+        Button proceedButton = new Button("Proceed");
+        Button cancelButton = new Button("Cancel");
+
+        // Creating a GridPane and centering components
+        GridPane gridPane = new GridPane();
+        gridPane.setAlignment(Pos.CENTER);
+        gridPane.setVgap(10);
+        gridPane.setHgap(10);
+
+        // Adding label and text field to the gridPane
+        gridPane.add(label, 0, 0, 2, 1); // Span label across two columns
+        gridPane.add(cardNumberField, 0, 1, 2, 1); // Span TextField across two columns
+
+        // Adding buttons directly to the gridPane
+        gridPane.add(proceedButton, 0, 2);
+        gridPane.add(cancelButton, 1, 2);
+
+        // Adjusting alignment within the GridPane cells
+        GridPane.setHalignment(label, HPos.CENTER);
+        GridPane.setHalignment(cardNumberField, HPos.CENTER);
+        GridPane.setHalignment(proceedButton, HPos.RIGHT);
+        GridPane.setHalignment(cancelButton, HPos.LEFT);
+
+        Scene scene = new Scene(gridPane, 300, 200);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
