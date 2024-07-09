@@ -1,0 +1,45 @@
+//by Wardina Saffiya Binti Jamalulil (24000996)
+
+import javafx.application.Application;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class InputAmountScreen extends Application {
+
+    private Stage stage;
+
+    public InputAmountScreen() {
+        
+    }
+
+    public void start(Stage primaryStage) {
+        this.stage = primaryStage;
+
+        VBox inputBox = new VBox(10);
+        inputBox.setAlignment(Pos.CENTER);
+
+        Label titleLabel = new Label("Input Amount");
+        Label amountLabel = new Label("Amount:");
+        TextField amountField = new TextField();
+        amountField.setPrefWidth(100); 
+        amountField.setMaxWidth(150);
+        Button proceedButton = new Button("Proceed");
+        Button cancelButton = new Button("Cancel");
+
+        inputBox.getChildren().addAll(titleLabel, amountLabel, amountField, proceedButton, cancelButton);
+
+        Scene scene = new Scene(inputBox, 300, 200);
+        stage.setScene(scene);
+        stage.setTitle("Input Amount");
+        stage.show();
+    }
+
+    public static void main(String[] args) {
+        launch(args); 
+    }
+}
