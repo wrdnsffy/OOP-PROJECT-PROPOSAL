@@ -1,2 +1,2 @@
-# OOP-PROJECT-PROPOSAL
-Automated Teller Machine (ATM) System
+# Automated Teller Machine (ATM) System Simulation
+Object Oriented Programming
